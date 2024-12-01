@@ -57,7 +57,7 @@ require (
 	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 	modernc.org/sqlite v1.33.1
 	unknwon.dev/clog/v2 v2.2.0
-	xorm.io/builder v0.3.6
+	xorm.io/builder v0.3.13
 	xorm.io/core v0.7.2
 	xorm.io/xorm v0.8.0
 )
