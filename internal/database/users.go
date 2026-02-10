@@ -11,7 +11,6 @@ import (
 
 	"github.com/cockroachdb/errors"
 	"github.com/go-macaron/binding"
-	api "github.com/gogs/go-gogs-client"
 	"gorm.io/gorm"
 	log "unknwon.dev/clog/v2"
 
@@ -23,6 +22,7 @@ import (
 	"gogs.io/gogs/internal/markup"
 	"gogs.io/gogs/internal/osutil"
 	"gogs.io/gogs/internal/repoutil"
+	apiv1types "gogs.io/gogs/internal/route/api/v1/types"
 	"gogs.io/gogs/internal/strutil"
 	"gogs.io/gogs/internal/tool"
 	"gogs.io/gogs/internal/userutil"
@@ -1297,14 +1297,14 @@ func (u *User) IsOrganization() bool {
 }
 
 // APIFormat returns the API format of a user.
-func (u *User) APIFormat() *api.User {
-	return &api.User{
+func (u *User) APIFormat() *apiv1types.User {
+	return &apiv1types.User{
 		ID:        u.ID,
 		UserName:  u.Name,
 		Login:     u.Name,
 		FullName:  u.FullName,
 		Email:     u.Email,
-		AvatarUrl: u.AvatarURL(),
+		AvatarURL: u.AvatarURL(),
 	}
 }
 
