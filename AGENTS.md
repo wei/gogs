@@ -20,6 +20,7 @@ This applies to all texts, including but not limited to UI, documentation, code 
 
 - Prefer `task` command over vanilla `go` command when available. Use `--force` flag when necessary.
 - Run `task lint` after every time you finish changing code, and fix all linter errors.
+- Run `go mod tidy` after every time you change `go.mod`, do not manually edit `go.sum` file.
 
 ## Tool-use guidance
 

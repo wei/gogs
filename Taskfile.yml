@@ -10,8 +10,6 @@ tasks:
   web:
     desc: Build the binary and start the web server
     deps: [build]
-    env:
-      GOGS_WORK_DIR: '{{.ROOT_DIR}}'
     cmds:
       - .bin/gogs web
 

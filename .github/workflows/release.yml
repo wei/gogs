@@ -40,9 +40,9 @@ jobs:
           - {goos: windows, goarch: arm64, suffix: "_mws", tags: minwinsvc}
           - {goos: windows, goarch: "386", suffix: "_mws", tags: minwinsvc}
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-      - name: Setup Go
+      - name: Set up Go
         uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
         with:
           go-version: 1.25.x
@@ -112,14 +112,14 @@ jobs:
           if [ "${{ github.event_name }}" != "release" ]; then
             git tag -f "$RELEASE_TAG"
             git push origin "$RELEASE_TAG" --force || true
-            
+
             RELEASE_TITLE="Release Archive Testing"
             RELEASE_NOTES="Automated testing release for workflow development."
             if [ "$RELEASE_TAG" = "latest-commit-build" ]; then
               RELEASE_TITLE="Latest Commit Build"
               RELEASE_NOTES="Automated build from the latest commit on main branch. This release is updated automatically with every push to main."
             fi
-            
+
             gh release view "$RELEASE_TAG" || gh release create "$RELEASE_TAG" --title "$RELEASE_TITLE" --notes "$RELEASE_NOTES" --prerelease
           fi
 
